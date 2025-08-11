@@ -5,7 +5,7 @@ from config import ONBOARDING_TASKS
 
 onboardees = csv_helpers.get_onboardees_from_csv("to_be_onboarded.csv")
 for onboardee in onboardees:
-    print(f"Creating onboarding page for {onboardee["onboardee"]} with role {onboardee["role"]}")
+    print(f'Creating onboarding page for {onboardee["onboardee"]} with role {onboardee["role"]}')
     onboardee_id = notion_helpers.create_onboarding_page(onboardee["onboardee"])
     for task in ONBOARDING_TASKS[onboardee["role"]]:
         notion_helpers.create_task(task, onboardee_id)
